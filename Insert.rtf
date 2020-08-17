@@ -1,0 +1,36 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
+{\*\generator Riched20 10.0.10240}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\f0\fs22\lang9 #include<stdio.h>\par
+#include<math.h>\par
+void insertetionSort(int arr[], int n)\par
+\{\par
+\tab int i,key ,j;\par
+\tab for(i=1;i<n; i++)\par
+\tab\{\par
+\tab\tab key=arr[i];\par
+\tab\tab j=i-1;\par
+\tab\tab while(j>=0 && arr[j]> key)\par
+\tab\tab\{ \par
+\tab\tab arr[j+1]=arr[j];\par
+\tab\tab j=j-1;\par
+\tab\tab\}\par
+\tab\tab arr[j+1]=key;\par
+\tab\}\par
+\tab\par
+\}\par
+void printArray(int arr[], int n)\par
+\{\par
+\tab int i;\par
+\tab for (i=0;i<n;i++)\par
+\tab printf("%d",arr[i]);\par
+\tab printf("\\n");\par
+\}\par
+int main()\par
+\{\par
+\tab int arr[]=\{10,8,7,5,6\};\par
+\tab int n= sizeof(arr);\par
+\tab insertionSort(arr,n);\par
+\tab printArray(arr,n);\par
+\tab return 0;\par
+\}\par
+}
