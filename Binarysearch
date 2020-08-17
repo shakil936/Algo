@@ -1,0 +1,29 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
+{\*\generator Riched20 10.0.10240}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\f0\fs22\lang9 #include<stdio.h>\par
+int binarySearch(int arr[], int l, int r,int x)\par
+\{\par
+\tab if(r>=l)\par
+\tab\{\par
+\tab\tab int mid =l+(r-1)/2;\par
+\tab\tab if(arr[mid]==x)\par
+\tab\tab return mid;\par
+\tab\tab\par
+\tab\tab if (arr[mid]>x)\par
+\tab\tab return binarySearch(arr, l, mid -1,x);\par
+\tab\tab return binarySearch(arr,mid+1,r,x);\par
+\tab\}\par
+\tab return-1;\par
+\}\par
+int main(void)\par
+\{\par
+\tab int arr[]=\{2,3,4,10,49\};\par
+\tab int n = sizeof(arr);\par
+\tab int x= 10;\par
+\tab int result= binarySearch(arr,0,n-1,x);\par
+\tab (result== -1);\par
+\tab\par
+\tab printf("element is present at index %d", result);\par
+\tab return 0;\par
+\}\par
+}
