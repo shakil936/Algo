@@ -1,0 +1,84 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
+{\*\generator Riched20 10.0.10240}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\f0\fs22\lang9 #include <stdio.h>\par
+void merge(int arr[],int l,int m,int r)\par
+\{\par
+\tab int i,j,k;\par
+\tab int n1=m-l+1;\par
+\tab int n2=r-m;\par
+\tab int L[n1],R[n2];\par
+\tab for(i=0;i<n1;i++)\par
+\tab\{\par
+\tab\tab L[i]=arr[l+i];\par
+\tab\}\par
+\tab for(j=0;j<n2;j++)\par
+\tab\{\par
+\tab\tab R[j]=arr[m+1+j];\par
+\tab\}\par
+\tab i=0;\par
+\tab j=0;\par
+\tab k=1;\par
+\tab while(i<n1 && j<n2)\par
+\tab\{\par
+\tab\tab if(L[i]<=R[j])\par
+\tab\tab\{\par
+\tab\tab\tab arr[k]=L[i];\par
+\tab\tab\tab i++;\par
+\tab\tab\}\par
+\tab\tab else\par
+\tab\tab\{\par
+\tab\tab\tab arr[k]=R[j];\par
+\tab\tab\tab j++;\par
+\tab\tab\}\par
+\tab\tab k++;\par
+\tab\par
+\tab\tab\}\par
+\tab\tab while(i<n1)\par
+\tab\tab\{\par
+\tab\tab\tab arr[k]=L[i];\par
+\tab\tab\tab i++;\par
+\tab\tab\tab k++;\par
+\tab\tab\}\par
+\tab\tab while(j<n2)\par
+\tab\tab\{\par
+\tab\tab arr[k]=R[j];\par
+\tab\tab j++;\par
+\tab\tab k++;\tab\par
+\tab\tab\}\par
+\tab\tab\par
+\tab\}\par
+void mergeShort(int arr[],int l,int r,int m)\par
+\{\par
+\tab if(l<r)\par
+\tab\{\par
+\tab\tab int m=l+(r-1)/2;\par
+\tab\tab mergeSort(arr, l, m);\par
+\tab\tab mergeSort(arr, m+l ,r);\par
+\tab\tab merge(arr,l,m,r);\par
+\tab\}\par
+\}\par
+void printArray(int A[],int size)\par
+\{ \par
+int i;\par
+for(i=0;i<size,i++)\par
+\{\par
+\tab printf("%d",A[i]);\par
+\}\par
+printf("\\n");\par
+\}\par
+int main()\par
+\{ \par
+    int arr[1000],arr_size;\par
+    printf("enter number of elements in array:");\par
+    scanf("%d",&arr_size);\par
+    printf("enter elements of array:\\n");\par
+    for(int i=0;i<arr_size;i++)\par
+    \{\par
+    \tab scanf("%d",&arr[i]);\par
+    \}\par
+    mergeSort(arr,0,arr_size-1);\par
+    printf("\\nSorted Array is :");\par
+    printArray(arr,arr_size);\par
+    return 0;\par
+\}\par
+}
